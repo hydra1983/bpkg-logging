@@ -1,2 +1,4 @@
-source "${SCRIPT_BASE}/deps/colorizer/colorizer"
-source "${SCRIPT_BASE}/deps/shlog/shlog"
+script_base="$1"
+
+source "${script_base}/deps/colorizer/colorizer"
+source "${script_base}/deps/shlog/shlog"

@@ -26,10 +26,11 @@ function _script_base() {
     echo "${script_base}"
 }
 
-readonly SCRIPT_BASE="$(_script_base)"
-
 # Load Dependencies
-[ -f ${SCRIPT_BASE}/_index.sh ] && source ${SCRIPT_BASE}/_index.sh || true
+[ -f "$(_script_base)/_index.sh" ] && \
+    chmod +x "$(_script_base)/_index.sh" && \
+    "$(_script_base)/_index.sh" "$(_script_base)" || \
+    true
 #########################################
 
 #api: ### `_trace`
