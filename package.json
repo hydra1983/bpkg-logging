@@ -1,0 +1,13 @@
+{
+    "name": "logging",
+    "version": "0.1.0",
+    "description": "Logging utilities",
+    "scripts": [
+        "logging"
+    ],
+    "install": "make install",
+    "dependencies": {
+        "https://coding.net/u/hydra1983/p/bpkg-shlog": "master",
+        "https://coding.net/u/hydra1983/p/bpkg-colorizer": "master"
+    }
+}
