@@ -9,15 +9,16 @@
 #########################################
 # Resolve Script Base
 function _script_base() {
-    local script_base script_name
-
+    local script_file script_base script_name
+    script_file="${BASH_SOURCE[0]}"
+    
     if [[ -L $0 ]] ; then
-        script_base=$(cd $(dirname $(readlink -f $0)); pwd)
+        script_base=$(cd $(dirname $(readlink -f ${script_file})); pwd)
     else
-        script_base=$(cd $(dirname $0); pwd)
+        script_base=$(cd $(dirname ${script_file}); pwd)
     fi
 
-    script_name=$(basename $0)
+    script_name=$(basename ${script_file})
 
     if [[ -d "${script_base}/../share/${script_name}" ]]; then
         script_base="$(cd ${script_base}/../share/${script_name}; pwd)"
