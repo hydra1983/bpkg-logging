@@ -33,32 +33,32 @@ readonly SCRIPT_BASE="$(_script_base)"
 #########################################
 
 #api: ### `_trace`
-_trace () {
+function _trace () {
   shlog -l 'trace' $1
 }
 
 #api: ### `_debug`
-_debug () {
+function _debug () {
   shlog -l 'debug' $1
 }
 
 #api: ### `_info`
-_info () {
+function _info () {
   shlog -l 'info' $1
 }
 
 #api: ### `_warn`
-_warn () {
+function _warn () {
   shlog -l 'warn' $1
 }
 
 #api: ### `_error`
-_error () {
+function _error () {
   shlog -l 'error' $1
 }
 
 #api: ### `_assert`
-_assert () {
+function _assert () {
   local expression="$1"
   local message="$2"
   local lineno="$3"
