@@ -1,41 +1,10 @@
 #!/usr/local/bin/bash
 
-#########################################
-# THIS SECTION !!SHOULD NOT!! BE MODIFIED BY
-# DEVELOPERS AS IT PROVIDES COMMON FUNCTIONS
-# FOR ALL KINDS OF SCRIPTS
-#
-# Maintainer: Edison Guo <hydra1983@gmail.com>
-#########################################
-# Resolve Script Base
-function _script_base() {
-    local script_file script_base script_name
-    script_file="${BASH_SOURCE[0]}"
-    
-    if [[ -L $0 ]] ; then
-        script_base=$(cd $(dirname $(readlink -f ${script_file})); pwd)
-    else
-        script_base=$(cd $(dirname ${script_file}); pwd)
-    fi
-
-    script_name=$(basename ${script_file})
-
-    if [[ -d "${script_base}/../share/${script_name}" ]]; then
-        script_base="$(cd ${script_base}/../share/${script_name}; pwd)"
-    fi
-
-    echo "${script_base}"
-}
-
-# Load Dependencies
-script_base="$(_script_base)"
-#########################################
-
 #========================================
 # Load Dependencies
 #========================================
-source "${script_base}/deps/shcolorizer/shcolorizer"
-source "${script_base}/deps/shlog/shlog"
+source "${__script_dir}/deps/shcolorizer/shcolorizer"
+source "${__script_dir}/deps/shlog/shlog"
 
 #api: ### `_trace`
 function _trace () {
