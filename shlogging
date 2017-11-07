@@ -3,8 +3,8 @@
 #========================================
 # Load Dependencies
 #========================================
-__load "__script_dir/deps/shcolorizer/shcolorizer"
-__load "__script_dir/deps/shlog/shlog"
+__load "${BASH_SOURCE[0]}" "deps/shcolorizer/shcolorizer"
+__load "${BASH_SOURCE[0]}" "deps/shlog/shlog"
 
 #api: ### `_trace`
 function _trace () {
