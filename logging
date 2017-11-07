@@ -28,11 +28,14 @@ function _script_base() {
 }
 
 # Load Dependencies
-[ -f "$(_script_base)/_index.sh" ] && \
-    chmod +x "$(_script_base)/_index.sh" && \
-    "$(_script_base)/_index.sh" "$(_script_base)" || \
-    true
+script_base="$(_script_base)"
 #########################################
+
+#========================================
+# Load Dependencies
+#========================================
+source "${script_base}/deps/colorizer/colorizer"
+source "${script_base}/deps/shlog/shlog"
 
 #api: ### `_trace`
 function _trace () {
