@@ -1,9 +1,9 @@
 {
-    "name": "logging",
+    "name": "shlogging",
     "version": "0.1.0",
     "description": "Logging utilities",
     "scripts": [
-        "logging"
+        "shlogging"
     ],
     "install": "make install",
     "dependencies": {

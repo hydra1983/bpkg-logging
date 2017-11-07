@@ -1,9 +1,9 @@
-# logging
+# shlogging
 
 ## Usage
 
 This package should be used as dependencies only
 
 ```sh
-source ${SCRIPT_BASE}/deps/logging/logging
+source ${SCRIPT_BASE}/deps/shlogging/shlogging
 ```
