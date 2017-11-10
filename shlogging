@@ -6,29 +6,47 @@
 __load "${BASH_SOURCE[0]}" "shcolorizer"
 __load "${BASH_SOURCE[0]}" "shlog"
 
+## Log level
+# TRACE 0
+# DEBUG 1
+# INFO 2
+# WARN 3
+# ERROR 4
+SHLOGGING_LOG_LEVEL=2
+
 #api: ### `_trace`
 function _trace () {
-  shlog -l 'trace' $1
+  if (( SHLOGGING_LOG_LEVEL <= 0 )); then
+    shlog -l '[TRACE]' "$1"
+  fi  
 }
 
 #api: ### `_debug`
 function _debug () {
-  shlog -l 'debug' $1
+  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
+    shlog -l '[DEBUG]' "$(_green "$1")"
+  fi
 }
 
 #api: ### `_info`
 function _info () {
-  shlog -l 'info' $1
+  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
+    shlog -l 'INFO' "$(_blue "$1")"
+  fi
 }
 
 #api: ### `_warn`
 function _warn () {
-  shlog -l 'warn' $1
+  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
+    shlog -l 'WARN' "$(_bred "$1")"
+  fi
 }
 
 #api: ### `_error`
 function _error () {
-  shlog -l 'error' $1
+  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
+    shlog -l 'ERROR' "$(_red "$1")"
+  fi
 }
 
 #api: ### `_assert`
