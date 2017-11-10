@@ -58,3 +58,9 @@ function _assert () {
   #   and continue executing the script.
   fi
 }
+
+export -f _trace
+export -f _debug
+export -f _info
+export -f _warn
+export -f _error
