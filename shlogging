@@ -6,47 +6,29 @@
 __load "${BASH_SOURCE[0]}" "shcolorizer"
 __load "${BASH_SOURCE[0]}" "shlog"
 
-## Log level
-# TRACE 0
-# DEBUG 1
-# INFO 2
-# WARN 3
-# ERROR 4
-SHLOGGING_LOG_LEVEL=2
-
 #api: ### `_trace`
 function _trace () {
-  if (( SHLOGGING_LOG_LEVEL <= 0 )); then
-    shlog -l '[TRACE]' "$1"
-  fi  
+  shlog -l 'trace' "$1"
 }
 
 #api: ### `_debug`
 function _debug () {
-  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
-    shlog -l '[DEBUG]' "$(_green "$1")"
-  fi
+  shlog -l 'debug' "$1"
 }
 
 #api: ### `_info`
 function _info () {
-  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
-    shlog -l 'INFO' "$(_blue "$1")"
-  fi
+  shlog -l 'info' "$1"
 }
 
 #api: ### `_warn`
 function _warn () {
-  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
-    shlog -l 'WARN' "$(_bred "$1")"
-  fi
+  shlog -l 'warn' "$1"
 }
 
 #api: ### `_error`
 function _error () {
-  if (( SHLOGGING_LOG_LEVEL <= 1 )); then
-    shlog -l 'ERROR' "$(_red "$1")"
-  fi
+  shlog -l 'error' "$1"
 }
 
 #api: ### `_assert`
@@ -54,8 +36,9 @@ function _assert () {
   local expression="$1"
   local message="$2"
   local lineno="$3"
-
-  local result=$(eval "test ${expression}" && echo "true")
+  local result
+  
+  result=$(eval "test ${expression}" && echo "true")
 
   if [ "${result}" != "true" ]
   then
